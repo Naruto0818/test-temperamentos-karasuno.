@@ -1,0 +1,276 @@
+
+/* =====================================
+   TEST DE TEMPERAMENTOS - KARASUNO
+   ===================================== */
+
+/* 1. Colores principales */
+:root {
+    --naranja: #f58220;
+    --naranja-oscuro: #d96712;
+    --negro: #171717;
+    --blanco: #ffffff;
+    --fondo: #f3f4f6;
+    --gris: #666666;
+    --borde: #e2e2e2;
+}
+
+/* 2. Ajustes generales */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--fondo);
+    color: var(--negro);
+    line-height: 1.6;
+}
+
+/* 3. Encabezado */
+.encabezado {
+    background: var(--negro);
+    color: var(--blanco);
+    text-align: center;
+    padding: 48px 20px 60px;
+    border-bottom: 8px solid var(--naranja);
+}
+
+.etiqueta {
+    color: var(--naranja);
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.2;
+    margin: 0 auto 16px;
+}
+
+.subtitulo {
+    max-width: 600px;
+    margin: 0 auto;
+    color: #e5e5e5;
+    font-size: 1.05rem;
+}
+
+/* 4. Contenedor principal */
+.contenedor {
+    width: min(100% - 32px, 820px);
+    margin: -28px auto 40px;
+    position: relative;
+}
+
+/* 5. Tarjetas */
+.tarjeta {
+    background: var(--blanco);
+    padding: 32px;
+    border: 1px solid var(--borde);
+    border-radius: 16px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+}
+
+.introduccion h2 {
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    margin-top: 0;
+    margin-bottom: 12px;
+    border-left: 5px solid var(--naranja);
+    padding-left: 14px;
+}
+
+.nota {
+    background: #fff3e7;
+    border-left: 4px solid var(--naranja);
+    padding: 12px 14px;
+    border-radius: 5px;
+    color: #59300f;
+    font-size: 0.92rem;
+}
+
+/* 6. Área de preguntas */
+#formulario {
+    margin-top: 28px;
+}
+
+.pregunta {
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: var(--blanco);
+}
+
+.pregunta h3 {
+    font-size: 1.05rem;
+    margin: 0 0 16px;
+}
+
+.opciones {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.opcion {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    border: 1px solid var(--borde);
+    padding: 13px;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    overflow-wrap: anywhere;
+}
+
+.opcion:hover {
+    border-color: var(--naranja);
+    background: #fff8f1;
+}
+
+.opcion:has(input:checked) {
+    border-color: var(--naranja);
+    background: #fff0df;
+}
+
+.opcion input {
+    accent-color: var(--naranja-oscuro);
+    margin-top: 5px;
+    flex-shrink: 0;
+}
+
+.opcion:focus-within {
+    outline: 2px solid var(--naranja);
+    outline-offset: 3px;
+}
+
+/* 7. Botones */
+#zona-boton {
+    margin-top: 28px;
+    text-align: center;
+}
+
+button {
+    font: inherit;
+    font-weight: bold;
+    border: none;
+    border-radius: 9px;
+    padding: 15px 24px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+#boton-resultados {
+    width: 100%;
+    background: var(--naranja);
+    color: var(--negro);
+}
+
+#boton-resultados:hover:not(:disabled) {
+    background: var(--naranja-oscuro);
+    color: var(--blanco);
+    transform: translateY(-2px);
+}
+
+button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+/* 8. Resultados */
+#resultado {
+    margin-top: 24px;
+}
+
+#resultado:empty {
+    display: none;
+}
+
+.resultado-tarjeta {
+    border: 2px solid var(--naranja);
+    border-radius: 12px;
+    padding: 22px;
+    background: #fff8f1;
+}
+
+.resultado-tarjeta h2 {
+    margin-top: 0;
+}
+
+.barra-progreso {
+    height: 10px;
+    border-radius: 20px;
+    background: #e5e5e5;
+    overflow: hidden;
+}
+
+.barra-progreso span {
+    display: block;
+    height: 100%;
+    background: var(--naranja);
+    border-radius: inherit;
+}
+
+/* 9. Pie de página */
+footer {
+    background: var(--negro);
+    color: #e5e5e5;
+    text-align: center;
+    padding: 22px 16px;
+    border-top: 4px solid var(--naranja);
+    font-size: 0.9rem;
+}
+
+/* 10. Adaptación a teléfonos y tablets */
+@media (max-width: 600px) {
+    .encabezado {
+        padding: 36px 18px 48px;
+    }
+
+    .etiqueta {
+        letter-spacing: 2px;
+        font-size: 0.75rem;
+    }
+
+    .contenedor {
+        width: calc(100% - 20px);
+        margin-top: -20px;
+    }
+
+    .tarjeta {
+        padding: 20px 16px;
+        border-radius: 12px;
+    }
+
+    .opciones {
+        grid-template-columns: 1fr;
+    }
+
+    .pregunta {
+        padding: 16px 12px;
+    }
+
+    button {
+        padding: 14px 18px;
+    }
+}
+
+/* 11. Preferencia por menos animaciones */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+    }
+}
